@@ -1,0 +1,19 @@
+Descrption about the dockeryaml file 
+
+This `docker-compose.yml` file defines a setup with two services:
+
+1. **Python App (myapp)**:
+   - Uses the `python:0.1` image (consider updating to a valid version).
+   - Depends on `mysql` to start first.
+   - Builds from the local `Dockerfile`.
+   - Sets environment variables for connecting to MySQL (host, port, user, password, database).
+   - Connects to the `jhc` network.
+
+2. **MySQL Database (mysql)**:
+   - Uses the latest MySQL image.
+   - Exposes port `3306` to the host.
+   - Initializes with a root password, database name, user, and password.
+   - Also connects to the `jhc` network.
+
+3. **Network**:
+   - **jhc**: Custom bridge network enabling internal communication between containers.
